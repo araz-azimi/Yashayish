@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="آکادمی روان‌شناسی یاشاییش؛ مشاوره آنلاین، تلفنی، کارگاه آموزشی و رزرو وقت">
+  <meta name="theme-color" content="#426b64">
+  <title>Yashayish | آکادمی روان‌شناسی</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="container header">
+    <a class="logo" href="#home" data-target="view-home">
+      <span class="mark">
+        Y
+        <img src="images/logo.png" alt="لوگو" onerror="this.style.display='none'">
+      </span>
+      <span><b>Yashayish</b><small>آرامش برای ذهن</small></span>
+    </a>
+
+    <nav id="nav">
+      <a href="#" class="nav-auth-btn" data-auth>ورود / ثبت‌نام</a>
+      <a href="#home" data-target="view-home">صفحه اصلی</a>
+      <a href="#services" data-target="view-services">خدمات</a>
+      <a href="#workshops" data-target="view-workshops">کارگاه‌ها</a>
+      <a href="#therapists" data-target="view-therapists">درمانگران</a>
+      <a href="blog.html">وبلاگ</a>
+      <a href="#about" data-target="view-about">درباره ما</a>
+      <a href="#contact" data-target="view-contact">تماس با ما</a>
+    </nav>
+
+    <div>
+      <button class="menu" id="menu" aria-label="نمایش منو">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  
+  <div id="view-home" class="page-view active">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">یک قدم نزدیک‌تر به آرامش</span>
+          <h1>برای ذهنی آرام‌تر،<br><span>همراه شما هستیم.</span></h1>
+          <p class="lead">
+            در آکادمی روان‌شناسی یاشاییش، با همراهی درمانگران متخصص
+            می‌توانید احساسات خود را بهتر بشناسید و کیفیت زندگی‌تان را بهبود دهید.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#therapists" data-target="view-therapists">رزرو وقت مشاوره ←</a>
+            <a class="btn outline" href="#services" data-target="view-services">مشاهده خدمات</a>
+          </div>
+          <div class="benefits">
+            <span>مشاوره تخصصی</span><span>حفظ حریم خصوصی</span><span>رزرو آسان</span>
+          </div>
+        </div>
+
+        <div class="visual">
+          <div class="orbit"></div>
+          <div class="mind">
+            <div class="brain">⌁</div>
+            <strong>ذهن تو ارزش شنیده شدن دارد</strong>
+            <p>فضایی امن برای شناخت، رشد و آرامش</p>
+          </div>
+          <div class="float f1">♡ همراهی همدلانه</div>
+          <div class="float f2">◷ انتخاب تاریخ و ساعت</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="view-services" class="page-view">
+    <section class="section soft page-section" id="services">
+      <div class="container">
+        <div class="heading">
+          <span class="label">خدمات یاشاییش</span>
+          <h2>همراهی حرفه‌ای متناسب با نیاز شما</h2>
+          <p>روش ارتباطی مناسب خود را برای دریافت مشاوره انتخاب کنید.</p>
+        </div>
+
+        <div class="grid2">
+          <article class="card">
+            <div class="icon">⌁</div>
+            <h3>مشاوره آنلاین</h3>
+            <p>گفت‌وگوی آنلاین با درمانگر، بدون نیاز به مراجعه حضوری.</p>
+            <ul>
+              <li>دسترسی از هر مکان</li>
+              <li>صرفه‌جویی در زمان</li>
+              <li>حفظ حریم خصوصی</li>
+            </ul>
+            <a class="card-link" href="#therapists" data-target="view-therapists">انتخاب درمانگر ←</a>
+          </article>
+
+          <article class="card">
+            <div class="icon">☎</div>
+            <h3>مشاوره تلفنی</h3>
+            <p>دریافت مشاوره تخصصی از طریق تماس تلفنی و هماهنگی قبلی.</p>
+            <ul>
+              <li>ارتباط مستقیم</li>
+              <li>بدون نیاز به اینترنت</li>
+              <li>هماهنگی ساعت تماس</li>
+            </ul>
+            <a class="card-link" href="tel:09211891824">۰۹۲۱۱۸۹۱۸۲۴ ☎</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="view-workshops" class="page-view">
+    <section class="section page-section" id="workshops">
+      <div class="container">
+        <div class="heading">
+          <span class="label">کارگاه‌های آموزشی</span>
+          <h2>یادگیری برای زندگی آگاهانه‌تر</h2>
+          <p>کارگاه‌های تخصصی روان‌شناسی و توسعه مهارت‌های فردی.</p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="registering">در حال ثبت‌نام</button>
+          <button class="tab" data-tab="finished">برگزارشده</button>
+        </div>
+
+        <div class="panel active" data-panel="registering">
+          <div class="empty">
+            <strong>کارگاه جدید در راه است ✦</strong>
+            <p>اطلاعات کارگاه‌های در حال ثبت‌نام به‌زودی اضافه می‌شود.</p>
+            <a class="btn outline" href="#contact" data-target="view-contact">اطلاع از کارگاه‌ها</a>
+          </div>
+        </div>
+
+        <div class="panel" data-panel="finished">
+          <div class="empty">
+            <strong>آرشیو کارگاه‌ها به‌زودی اضافه می‌شود</strong>
+            <p>اطلاعات کارگاه‌های برگزارشده در این بخش قرار خواهد گرفت.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="view-therapists" class="page-view">
+    <section class="section soft page-section" id="therapists">
+      <div class="container">
+        <div class="heading">
+          <span class="label">درمانگران ما</span>
+          <h2>همراهی مطمئن برای مسیر شما</h2>
+          <p>با کلیک روی نام درمانگر، فرم رزرو با تاریخ شمسی باز می‌شود.</p>
+        </div>
+
+        <div class="grid3">
+          <article class="card therapist">
+            <div class="photo">
+              <div class="fallback">ا.ع</div>
+              <img src="images/Amir.png" alt="امیر عظیمی" onerror="this.style.display='none'">
+              <span class="available">پذیرش مراجع</span>
+            </div>
+            <div class="doctor-body">
+              <span class="role">درمانگر و مشاور</span>
+              <button class="doctor-name" data-book="امیر عظیمی">امیر عظیمی</button>
+              <p>همراه شما برای شناخت احساسات و حرکت در مسیر سلامت روان.</p>
+              <div class="tags"><span>مشاوره فردی</span><span>رشد فردی</span></div>
+              <button class="btn primary full" data-book="امیر عظیمی">رزرو وقت</button>
+            </div>
+          </article>
+
+          <article class="card therapist">
+            <div class="photo">
+              <div class="fallback">ف.ب</div>
+              <img src="images/Fariba.png" alt="فریبا باغبانی" onerror="this.style.display='none'">
+              <span class="available">پذیرش مراجع</span>
+            </div>
+            <div class="doctor-body">
+              <span class="role">درمانگر و مشاور</span>
+              <button class="doctor-name" data-book="فریبا باغبانی">فریبا باغبانی</button>
+              <p>فضایی امن، همدلانه و بدون قضاوت برای گفت‌وگو و خودشناسی.</p>
+              <div class="tags"><span>سلامت روان</span><span>روابط فردی</span></div>
+              <button class="btn primary full" data-book="فریبا باغبانی">رزرو وقت</button>
+            </div>
+          </article>
+
+          <article class="card therapist">
+            <div class="photo">
+              <div class="fallback">آ.ع</div>
+              <img src="images/Aykan.png" alt="آیکان عظیمی" onerror="this.style.display='none'">
+              <span class="available">پذیرش مراجع</span>
+            </div>
+            <div class="doctor-body">
+              <span class="role">متخصص روانشناسی بالینی کودک</span>
+              <button class="doctor-name" data-book="آیکان عظیمی">آیکان عظیمی</button>
+              <p>متخصص روانشناسی بالینی کودک، همراه والدین و کودکان برای رشد سالم.</p>
+              <div class="tags"><span>روانشناسی کودک</span><span>مشاوره والد و کودک</span></div>
+              <button class="btn primary full" data-book="آیکان عظیمی">رزرو وقت</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="view-about" class="page-view">
+    <section class="section page-section" id="about">
+      <div class="container about-grid">
+        <div class="quote">
+          <div>«آرامش از جایی آغاز می‌شود که تصمیم می‌گیریم خودمان را بهتر بشناسیم.»</div>
+        </div>
+
+        <div class="about">
+          <span class="label">درباره یاشاییش</span>
+          <h2>فضایی امن برای شنیده شدن و رشد کردن</h2>
+          <p>
+            یاشاییش با هدف دسترسی آسان‌تر به خدمات روان‌شناسی و آموزش
+            مهارت‌های سلامت روان شکل گرفته است. دریافت کمک تخصصی، انتخابی
+            آگاهانه برای مراقبت از خود و ساختن آینده‌ای بهتر است.
+          </p>
+          <div class="values">
+            <div><b>♡ همدلی</b><small>شنیدن بدون قضاوت</small></div>
+            <div><b>◇ اعتماد</b><small>حفظ حریم خصوصی</small></div>
+            <div><b>↗ رشد</b><small>حرکت به سوی زندگی بهتر</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="view-contact" class="page-view">
+    <section class="section soft page-section" id="contact">
+      <div class="container contact">
+        <div>
+          <span class="label" style="color:#fff">تماس با ما</span>
+          <h2>برای شروع مسیر با ما در ارتباط باشید</h2>
+          <p>برای هماهنگی جلسات و دریافت اطلاعات کارگاه‌ها تماس بگیرید.</p>
+        </div>
+        <div class="links">
+          <a class="contact-link" href="tel:09211891824">☎ شماره تماس: ۰۹۲۱۱۸۹۱۸۲۴</a>
+          <a class="contact-link" href="https://t.me/Araz_Azimi" target="_blank" rel="noopener">➤ تلگرام: @Araz_Azimi</a>
+          <a class="contact-link" href="https://instagram.com/Araz_Azimi" target="_blank" rel="noopener">◎ اینستاگرام: @Araz_Azimi</a>
+          
+          <section class="contact-section">
+            <h2>پیشنهاد و انتقاد</h2>
+            <p>نظرات، پیشنهادات یا انتقادات سازنده خود را با ما در میان بگذارید.</p>
+            
+            <form id="feedbackForm" class="contact-form">
+              <div class="form-group">
+                <label for="feedbackName">نام و نام خانوادگی:</label>
+                <input type="text" id="feedbackName" name="name" required placeholder="نام خود را وارد کنید">
+              </div>
+              
+              <div class="form-group">
+                <label for="feedbackPhone">شماره تماس (اختیاری):</label>
+                <input type="tel" id="feedbackPhone" name="phone" placeholder="مثلاً 09123456789">
+              </div>
+              
+              <div class="form-group">
+                <label for="feedbackMessage">متن پیام / پیشنهاد:</label>
+                <textarea id="feedbackMessage" name="message" rows="4" required placeholder="متن پیام خود را اینجا بنویسید..."></textarea>
+              </div>
+              
+              <button type="submit" class="submit-btn">ارسال پیام به مدیریت</button>
+            </form>
+          </section>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container footer">
+    <div><b>Yashayish</b><br>آکادمی روان‌شناسی و آرامش ذهن</div>
+    <div>
+      <a href="#services" data-target="view-services">خدمات</a> ·
+      <a href="#therapists" data-target="view-therapists">درمانگران</a> ·
+      <a href="#contact" data-target="view-contact">تماس با ما</a>
+    </div>
+  </div>
+  <div class="container copyright">
+    © <span id="year"></span> تمامی حقوق برای یاشاییش محفوظ است.
+  </div>
+</footer>
+
+<div class="modal" id="authModal">
+  <div class="dialog">
+    <button class="close" data-close>×</button>
+    <h2 id="authTitle">ورود به یاشاییش</h2>
+    <p>برای مدیریت درخواست‌های خود وارد حساب کاربری شوید.</p>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-auth-tab="login">ورود</button>
+      <button class="auth-tab" data-auth-tab="register">ثبت‌نام</button>
+    </div>
+
+    <form id="authForm">
+      <label id="nameField" hidden>
+        نام و نام خانوادگی
+        <input id="authName" type="text" placeholder="نام و نام خانوادگی">
+      </label>
+      <label>
+        شماره موبایل
+        <input id="authPhone" type="tel" inputmode="numeric" placeholder="۰۹۱۲۱۲۳۴۵۶۷" required>
+      </label>
+      <label>
+        رمز عبور
+        <input id="authPassword" type="password" minlength="6" placeholder="حداقل ۶ کاراکتر" required>
+      </label>
+      <button class="btn primary full" id="authSubmit">ورود به حساب</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="bookingModal">
+  <div class="dialog">
+    <button class="close" data-close>×</button>
+    <h2>رزرو وقت مشاوره</h2>
+    <p>تاریخ‌های قابل انتخاب بر اساس تقویم شمسی نمایش داده می‌شوند.</p>
+
+    <form id="bookingForm">
+      <div class="selected">درمانگر: <b id="doctorSelected">—</b></div>
+
+      <div class="form-grid">
+        <label>
+          نام و نام خانوادگی
+          <input name="name" required placeholder="نام مراجعه‌کننده">
+        </label>
+        <label>
+          شماره موبایل
+          <input name="phone" type="tel" inputmode="numeric" required placeholder="۰۹۱۲۱۲۳۴۵۶۷">
+        </label>
+        <label>
+          تاریخ شمسی
+          <select name="date" id="dates" required>
+            <option value="">انتخاب تاریخ</option>
+          </select>
+        </label>
+        <label>
+          ساعت جلسه
+          <select name="time" required>
+            <option value="">انتخاب ساعت</option>
+            <option>۰۹:۰۰</option><option>۱۰:۳۰</option>
+            <option>۱۲:۰۰</option><option>۱۶:۰۰</option>
+            <option>۱۷:۳۰</option><option>۱۹:۰۰</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        نوع مشاوره
+        <select name="type" required>
+          <option value="">انتخاب نوع مشاوره</option>
+          <option>مشاوره آنلاین</option>
+          <option>مشاوره تلفنی</option>
+        </select>
+      </label>
+
+      <label>
+        توضیحات اختیاری
+        <textarea name="message" placeholder="توضیح کوتاهی درباره موضوع مشاوره"></textarea>
+      </label>
+
+      <button class="btn primary full">ثبت درخواست رزرو</button>
+      <p class="note">رزرو پس از هماهنگی تلفنی نهایی خواهد شد.</p>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast">✓ درخواست شما با موفقیت ثبت شد.</div>
+
+<script src="script.js"></script>
+</body>
+</html>
