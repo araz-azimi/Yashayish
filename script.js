@@ -216,7 +216,7 @@ function showToast(message) {
     toast.classList.remove("show");
   }, 3500);
 }
-// مدیریت فرم پیشنهاد و انتقاد
+
 const feedbackForm = $("#feedbackForm");
 if (feedbackForm) {
   feedbackForm.addEventListener("submit", event => {
@@ -250,3 +250,61 @@ if (feedbackForm) {
     });
   });
 }
+
+// ====== بارگذاری خودکار مقالات وبلاگ ======
+const blogContainer = document.getElementById("blogContainer");
+
+if (blogContainer) {
+  fetch("posts.json")
+    .then(response => {
+      if (!response.ok) throw new Error("Network response was not ok");
+      return response.json();
+    })
+    .then(posts => {
+      // پاک کردن محتوای قبلی (مثلاً متن "در حال بارگذاری...")
+      blogContainer.innerHTML = "";
+      
+      posts.forEach(post => {
+        let actionHtml = "";
+        
+        if (post.fileUrl && post.fileUrl.trim() !== "") {
+          actionHtml = `
+            <div class="download-box">
+              <div>
+                <strong>${post.fileName}</strong>
+                <small>${post.fileMeta}</small>
+              </div>
+              <a href="${post.fileUrl}" download class="btn outline download-btn">دانلود فایل ↓</a>
+            </div>
+          `;
+        } else {
+          actionHtml = `<a href="#" class="read-more">ادامه مطلب ←</a>`;
+        }
+
+        const article = document.createElement("article");
+        article.className = "blog-card";
+        article.innerHTML = `
+          <span class="blog-date">${post.date}</span>
+          <h3>${post.title}</h3>
+          <p class="blog-author">نویسنده: ${post.author}</p>
+          <p class="blog-excerpt">${post.excerpt}</p>
+          ${actionHtml}
+        `;
+        
+        blogContainer.appendChild(article);
+      });
+    })
+    .catch(error => {
+      console.error("خطا در خواندن فایل مقالات:", error);
+      blogContainer.innerHTML = "<p style='text-align:center; width:100%;'>در حال حاضر مقاله‌ای برای نمایش وجود ندارد.</p>";
+    });
+}
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Service Worker registered! Scope: ', reg.scope))
+        .catch(err => console.log('Service Worker registration failed: ', err));
+    });
+  }
+</script>
