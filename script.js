@@ -159,7 +159,6 @@ $$("[data-book]").forEach(button => {
   });
 });
 
-// مدیریت فرم رزرو نوبت
 $("#bookingForm").addEventListener("submit", event => {
   event.preventDefault();
 
@@ -167,7 +166,6 @@ $("#bookingForm").addEventListener("submit", event => {
   const doctorName = bookingModal.dataset.doctor || "نامشخص";
   
   formData.append("doctor", doctorName);
-  formData.append("subject", "رزرو نوبت جدید در یاشاییش");
   formData.append("access_key", "3a2da16a-b340-4801-8fc6-72bf7c74e5df");
 
   const data = Object.fromEntries(formData);
@@ -210,6 +208,14 @@ $("#bookingForm").addEventListener("submit", event => {
   closeModals();
 });
 
+function showToast(message) {
+  toast.textContent = "✓ " + message;
+  toast.classList.add("show");
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3500);
+}
 // مدیریت فرم پیشنهاد و انتقاد
 const feedbackForm = $("#feedbackForm");
 if (feedbackForm) {
@@ -217,7 +223,7 @@ if (feedbackForm) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    formData.append("subject", "پیام جدید: پیشنهاد و انتقاد");
+    formData.append("form_type", "پیشنهاد و انتقاد");
     formData.append("access_key", "3a2da16a-b340-4801-8fc6-72bf7c74e5df");
 
     const data = Object.fromEntries(formData);
@@ -243,13 +249,4 @@ if (feedbackForm) {
       showToast("خطا در ارتباط با سرور.");
     });
   });
-}
-
-function showToast(message) {
-  toast.textContent = "✓ " + message;
-  toast.classList.add("show");
-  clearTimeout(window.toastTimer);
-  window.toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 3500);
 }
