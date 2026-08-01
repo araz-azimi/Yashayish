@@ -1,0 +1,551 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#42675d">
+  <meta name="description" content="کلینیک روان‌شناسی یاشاییش؛ مشاوره آنلاین، تلفنی، کارگاه آموزشی و رزرو وقت.">
+  <title>یاشاییش | کلینیک روان‌شناسی و رزرو مشاوره</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#52776b;--dark:#294b42;--soft:#e7f0eb;--cream:#f7f3ea;
+      --gold:#d6a467;--text:#22332d;--muted:#687872;--line:#dce6e0;
+      --white:#fff;--bg:#f8faf7;--danger:#a84646;
+      --shadow:0 22px 55px rgba(42,70,61,.12);
+      --radius:24px;--container:1180px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9;overflow-x:hidden}
+    body.lock{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    img,svg{display:block;max-width:100%}
+    [hidden]{display:none!important}
+    .container{width:min(calc(100% - 36px),var(--container));margin:auto}
+    .section{padding:100px 0}
+    .label{display:inline-block;color:var(--primary);font-size:13px;font-weight:800;margin-bottom:9px}
+    .heading{max-width:680px;margin-bottom:45px}
+    .heading.center{text-align:center;margin-inline:auto}
+    .heading h2,.about h2,.contact-copy h2{font-size:clamp(30px,4vw,46px);line-height:1.45;margin:0 0 12px}
+    .heading p,.about p{color:var(--muted);margin:0}
+    .btn{border:1px solid transparent;border-radius:999px;padding:12px 23px;min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;transition:.25s}
+    .btn:hover{transform:translateY(-2px)}
+    .primary{background:var(--primary);color:#fff;box-shadow:0 12px 25px rgba(82,119,107,.25)}
+    .primary:hover{background:var(--dark)}
+    .secondary{background:var(--soft);color:var(--dark);border-color:#d4e2da}
+    .ghost{background:#fff;color:var(--dark);border-color:var(--line)}
+    .full{width:100%}
+    .skip{position:fixed;top:-60px;right:20px;z-index:2000;background:var(--dark);color:#fff;padding:10px 18px;border-radius:0 0 12px 12px}
+    .skip:focus{top:0}
+
+    /* Header */
+    header{height:78px;position:fixed;inset:0 0 auto;z-index:1000;transition:.25s}
+    header.scrolled{background:rgba(248,250,247,.93);backdrop-filter:blur(16px);box-shadow:0 6px 25px rgba(30,60,50,.08);border-bottom:1px solid var(--line)}
+    .header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .brand-icon{width:45px;height:45px;border-radius:15px;background:var(--soft);display:grid;place-items:center;color:var(--primary);font-size:24px}
+    .brand strong,.brand small{display:block;line-height:1.25}
+    .brand strong{color:var(--dark);font-size:19px}
+    .brand small{color:var(--muted);font-size:10px;margin-top:3px}
+    nav{display:flex;align-items:center;gap:4px}
+    nav a{padding:8px 9px;color:var(--muted);font-size:13px;font-weight:600;border-radius:10px}
+    nav a:hover,nav a.active{color:var(--dark);background:var(--soft)}
+    .menu-btn{display:none;width:45px;height:45px;border:0;border-radius:13px;background:var(--soft)}
+    .menu-btn i{display:block;width:21px;height:2px;background:var(--dark);margin:5px auto;transition:.2s}
+    .mobile-menu{display:none}
+
+    /* Hero */
+    .hero{min-height:790px;padding:145px 0 90px;display:flex;align-items:center;position:relative;overflow:hidden}
+    .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;z-index:-1}
+    .hero:before{width:580px;height:580px;background:#edf4ef;left:-230px;top:-150px}
+    .hero:after{width:380px;height:380px;border:1px solid #d9e6df;right:-170px;bottom:20px}
+    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:65px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--soft);color:var(--dark);padding:6px 13px;border-radius:999px;font-size:13px;font-weight:700}
+    .eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px #f3dfc5}
+    h1{font-size:clamp(42px,5.2vw,68px);line-height:1.35;margin:20px 0;color:var(--text);letter-spacing:-1.5px}
+    h1 span{color:var(--primary);position:relative}
+    h1 span:after{content:"";position:absolute;height:8px;background:#efd7b8;right:0;left:0;bottom:3px;border-radius:50%;z-index:-1}
+    .hero-copy>p{color:var(--muted);font-size:18px;max-width:620px;margin-bottom:28px}
+    .actions{display:flex;flex-wrap:wrap;gap:11px}
+    .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:27px;color:var(--muted);font-size:12px}
+    .trust span:before{content:"✓";display:inline-grid;place-items:center;width:20px;height:20px;background:var(--soft);color:var(--primary);border-radius:50%;margin-left:6px}
+    .mind{aspect-ratio:1;position:relative;border-radius:47% 47% 38% 43%;background:linear-gradient(145deg,#e2ece6,#f7f0e5);box-shadow:var(--shadow);display:grid;place-items:center}
+    .mind:before,.mind:after{content:"";position:absolute;border:1px solid rgba(82,119,107,.2);border-radius:50%}
+    .mind:before{inset:7%}.mind:after{inset:18%;border-style:dashed}
+    .head-art{width:70%;z-index:1}
+    .float{position:absolute;z-index:2;background:rgba(255,255,255,.92);padding:12px 15px;border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 35px rgba(40,70,60,.1);font-size:12px}
+    .float strong,.float small{display:block}.float small{color:var(--muted)}
+    .f1{left:-5%;top:13%}.f2{right:-5%;bottom:14%}
+
+    /* Cards */
+    .quick{margin-top:-34px;position:relative;z-index:2}
+    .quick-grid{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+    .quick-grid article{display:flex;gap:13px;align-items:center;padding:23px}
+    .quick-grid article:not(:last-child){border-left:1px solid var(--line)}
+    .icon{width:48px;height:48px;flex:0 0 auto;border-radius:15px;background:var(--soft);color:var(--primary);display:grid;place-items:center;font-size:21px}
+    .quick strong,.quick small{display:block}.quick small,.quick a{color:var(--muted);font-size:12px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:.25s}
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#c5d9ce}
+    .card.featured{background:linear-gradient(145deg,#f9fcfa,#edf5f0)}
+    .card h3{font-size:22px;margin:19px 0 8px}
+    .card p{color:var(--muted);font-size:14px}
+    .list{padding:0;list-style:none;margin:18px 0}
+    .list li{font-size:13px;margin:7px 0}.list li:before{content:"✓";color:var(--primary);font-weight:800;margin-left:8px}
+    .link{border:0;background:none;color:var(--primary);font-weight:800;padding:6px 0}
+    .phone{background:var(--cream);border-radius:15px;padding:12px 16px;margin:18px 0}
+    .phone small,.phone a{display:block}.phone a{color:var(--dark);font-weight:800;font-size:18px}
+
+    /* Workshops */
+    .workshops{background:#eef4f0}
+    .head-row{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:40px}
+    .head-row .heading{margin:0}
+    .tabs{display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
+    .tab{border:0;background:transparent;border-radius:999px;padding:9px 17px;color:var(--muted)}
+    .tab.active{background:var(--primary);color:#fff}
+    .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .work-card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+    .work-cover{height:220px;padding:24px;position:relative;display:flex;align-items:end;background:linear-gradient(135deg,#b8cec1,#628476);color:#fff}
+    .work-cover.sand{background:linear-gradient(135deg,#efd9b7,#bd8750)}
+    .work-cover.blue{background:linear-gradient(135deg,#bdcfd6,#66828c)}
+    .status{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.9);color:var(--dark);padding:5px 11px;border-radius:999px;font-size:11px;font-weight:800}
+    .work-cover h3{font-size:24px;max-width:380px;margin:0;line-height:1.5}
+    .work-body{padding:24px}.work-body p{color:var(--muted);font-size:14px}
+    .meta{display:flex;gap:13px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin-bottom:11px}
+
+    /* Therapist / about */
+    .profile{display:grid;grid-template-columns:370px 1fr;gap:45px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:30px;padding:30px;box-shadow:var(--shadow)}
+    .portrait{height:410px;border-radius:23px;overflow:hidden;background:linear-gradient(#e7efe9,#c9d9cf);display:flex;align-items:end;justify-content:center}
+    .portrait svg{width:90%}
+    .profile h3{font-size:36px;margin:8px 0}.profile p{color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.tags span{background:var(--soft);color:var(--dark);padding:6px 12px;border-radius:999px;font-size:12px}
+    .process{background:var(--dark);color:#fff}
+    .process .heading p{color:#bfd0c9}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .step{position:relative;padding:27px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);border-radius:22px}
+    .step b{font-size:42px;color:#a9c1b7}.step h3{margin:10px 0}.step p{color:#c4d2cd;font-size:13px;margin:0}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+    .about-art{min-height:480px;border-radius:30px;background:linear-gradient(145deg,#e7efe9,#f1dfc7);display:grid;place-items:center;position:relative}
+    .about-art svg{width:70%}
+    .quote{position:absolute;left:25px;right:25px;bottom:25px;background:rgba(255,255,255,.9);border-radius:18px;padding:16px;text-align:center;font-weight:700}
+    .values{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:27px}
+    .value{padding:16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .value b,.value small{display:block}.value small{color:var(--muted)}
+
+    /* Blog / FAQ / Contact */
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .post{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.25s}
+    .post:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .post-cover{height:170px;background:linear-gradient(135deg,#ccded4,#719386);position:relative}
+    .post:nth-child(2) .post-cover{background:linear-gradient(135deg,#f0dfc2,#c69257)}
+    .post:nth-child(3) .post-cover{background:linear-gradient(135deg,#ddd7e9,#8b829e)}
+    .post-cover:before,.post-cover:after{content:"";position:absolute;border:2px solid rgba(255,255,255,.65);border-radius:50%}
+    .post-cover:before{width:100px;height:100px;left:25px;top:30px}.post-cover:after{width:55px;height:55px;left:60px;top:55px}
+    .post-body{padding:22px}.post-body h3{line-height:1.65;margin:8px 0}.post-body p{color:var(--muted);font-size:13px}
+    .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+    .accordion-item{border-bottom:1px solid var(--line)}
+    .accordion-btn{width:100%;border:0;background:none;padding:19px 0;display:flex;justify-content:space-between;text-align:right;font-weight:800}
+    .accordion-btn span:last-child{font-size:22px;color:var(--primary)}
+    .accordion-content{max-height:0;overflow:hidden;transition:max-height .3s}
+    .accordion-content p{color:var(--muted);font-size:14px;margin:0 0 20px}
+    .accordion-item.open .accordion-content{max-height:180px}
+    .contact{background:var(--primary);color:#fff}
+    .contact-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+    .contact-copy p{color:#d9e5e0}
+    .contact-list{margin:25px 0}.contact-list a,.contact-list div{display:flex;gap:12px;align-items:center;margin:15px 0}
+    .contact-list .icon{background:rgba(255,255,255,.13);color:#fff}
+    .contact-list small,.contact-list strong{display:block}.contact-list small{color:#d2e0db}
+    .notice{background:rgba(0,0,0,.12);padding:13px;border-radius:13px;font-size:12px}
+    form{background:#fff;color:var(--text);padding:28px;border-radius:25px;box-shadow:var(--shadow)}
+    form h3{font-size:25px;margin:0 0 4px}form>p{color:var(--muted);font-size:13px}
+    .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .group.full{grid-column:1/-1}
+    label{display:block;font-size:12px;font-weight:700;margin-bottom:5px}
+    input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:#fbfcfb;color:var(--text);outline:0}
+    input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(82,119,107,.12)}
+    .invalid{border-color:var(--danger)}
+    .consent{display:flex;align-items:flex-start;gap:8px;margin:15px 0;color:var(--muted)}
+    .consent input{width:auto;margin-top:7px}
+    .consent label{font-weight:400}
+
+    /* Footer/modal */
+    footer{background:#18342c;color:#d8e3df;padding:65px 0 22px}
+    .footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:35px}
+    footer h3{color:#fff;font-size:15px}footer p,footer li{font-size:12px;color:#afc2bb}
+    footer li{margin:8px 0}footer a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;gap:15px}
+    .floating-call{position:fixed;z-index:800;left:22px;bottom:22px;background:var(--primary);color:#fff;width:61px;height:61px;border-radius:50%;display:grid;place-items:center;box-shadow:0 13px 30px rgba(30,70,55,.3);font-size:22px}
+    .floating-call small{font-size:8px;margin-top:-15px}
+    .modal{position:fixed;inset:0;z-index:1500;display:none;place-items:center;padding:18px}
+    .modal.open{display:grid}
+    .backdrop{position:absolute;inset:0;background:rgba(15,32,27,.66);backdrop-filter:blur(5px)}
+    .dialog{position:relative;width:min(100%,660px);max-height:94vh;overflow:auto;background:#fff;border-radius:25px;padding:28px}
+    .close{position:absolute;left:18px;top:15px;border:0;background:var(--soft);width:38px;height:38px;border-radius:50%;font-size:23px}
+    .dialog form{padding:0;box-shadow:none}
+    .toast{position:fixed;z-index:2000;left:20px;bottom:20px;max-width:360px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:15px 18px;display:flex;gap:11px;transform:translateY(140%);transition:.3s}
+    .toast.show{transform:none}.toast b{color:var(--primary)}.toast p{font-size:11px;color:var(--muted);margin:2px 0}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:.65s}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:980px){
+      nav,.header-inner>.btn{display:none}.menu-btn{display:block}
+      .mobile-menu{position:fixed;top:78px;right:18px;left:18px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:15px;box-shadow:var(--shadow)}
+      .mobile-menu.open{display:block}.mobile-menu a{display:block;padding:10px;border-bottom:1px solid #edf1ee}
+      .hero-grid,.about-grid,.contact-wrap{grid-template-columns:1fr;gap:45px}
+      .hero-copy{text-align:center}.hero-copy>p{margin-inline:auto}.hero .actions,.trust{justify-content:center}
+      .mind{max-width:560px;margin:auto}.cards{grid-template-columns:repeat(2,1fr)}
+      .profile{grid-template-columns:300px 1fr}.faq-grid{gap:35px}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:700px){
+      .section{padding:75px 0}.container{width:min(calc(100% - 26px),var(--container))}
+      .hero{min-height:auto;padding-top:120px}.hero-grid{gap:45px}
+      h1{font-size:40px}.hero-copy>p{font-size:15px}.mind{width:92%}.float{display:none}
+      .quick{margin-top:0;padding-top:20px}.quick-grid,.cards,.work-grid,.steps,.blog-grid,.faq-grid{grid-template-columns:1fr}
+      .quick-grid article:not(:last-child){border-left:0;border-bottom:1px solid var(--line)}
+      .head-row{display:block}.tabs{width:max-content;margin-top:20px}
+      .profile{grid-template-columns:1fr;padding:18px}.portrait{height:340px}.profile h3{font-size:29px}
+      .values,.form-grid{grid-template-columns:1fr}.group.full{grid-column:auto}
+      .about-art{min-height:390px}.footer-grid{grid-template-columns:1fr 1fr}.footer-about{grid-column:1/-1}
+      .footer-bottom{display:block}.contact-wrap{gap:35px}form{padding:20px}
+    }
+    @media(max-width:450px){
+      .brand small{display:none}.brand-icon{width:41px;height:41px}
+      h1{font-size:35px}.actions .btn{width:100%}.hero{padding-top:110px}
+      .footer-grid{grid-template-columns:1fr}.footer-about{grid-column:auto}
+      .dialog{padding:22px 17px}.floating-call{width:55px;height:55px;left:14px;bottom:14px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+
+<body>
+<a class="skip" href="#main">رفتن به محتوای اصلی</a>
+
+<header id="header">
+  <div class="container header-inner">
+    <a class="brand" href="#home">
+      <span class="brand-icon">❧</span>
+      <span><strong>Yashayish</strong><small>کلینیک روان‌شناسی یاشاییش</small></span>
+    </a>
+
+    <nav aria-label="منوی اصلی">
+      <a href="#home">خانه</a><a href="#services">خدمات</a>
+      <a href="#workshops">کارگاه‌ها</a><a href="#therapists">درمانگران</a>
+      <a href="#blog">وبلاگ</a><a href="#about">درباره ما</a>
+      <a href="#contact">تماس با ما</a>
+    </nav>
+
+    <button class="btn primary" data-book>رزرو وقت</button>
+    <button class="menu-btn" id="menuBtn" aria-label="نمایش منو" aria-expanded="false">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">خانه</a><a href="#services">خدمات</a>
+    <a href="#workshops">کارگاه‌های آموزشی</a>
+    <a href="#therapists">درمانگران</a><a href="#blog">وبلاگ</a>
+    <a href="#about">درباره ما</a><a href="#contact">تماس با ما</a>
+    <button class="btn primary full" data-book>رزرو وقت مشاوره</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">فضایی امن برای شنیده‌شدن</span>
+        <h1>مسیر آرامش از <span>شناخت خود</span> آغاز می‌شود.</h1>
+        <p>در یاشاییش همراه شما هستیم تا در فضایی امن، محرمانه و بدون قضاوت درباره احساسات، روابط و چالش‌های زندگی گفت‌وگو کنید.</p>
+        <div class="actions">
+          <button class="btn primary" data-book>رزرو جلسه مشاوره ←</button>
+          <a class="btn ghost" href="tel:+989211891824">☎ ۰۹۲۱۱۸۹۱۸۲۴</a>
+        </div>
+        <div class="trust"><span>حفظ حریم خصوصی</span><span>رزرو آسان</span><span>جلسات آنلاین و تلفنی</span></div>
+      </div>
+
+      <div class="mind reveal">
+        <svg class="head-art" viewBox="0 0 400 420" aria-hidden="true">
+          <circle cx="200" cy="205" r="145" fill="#f7faf7"/>
+          <path d="M254 340c-12-35-8-60 10-84 20-28 30-57 23-94-12-63-64-104-126-92-61 12-98 70-83 132 8 33 27 56 53 76 16 12 22 32 18 57" fill="none" stroke="#52776b" stroke-width="13" stroke-linecap="round"/>
+          <path d="M199 108v150M198 143c-27-22-49-12-53 5 12 21 30 25 53 16M202 187c29-24 51-13 55 4-12 22-32 27-55 18M199 229c-22-18-39-10-43 4 9 18 25 21 43 13" fill="none" stroke="#d6a467" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+        <div class="float f1"><strong>یک قدم برای خودت</strong><small>شروع مسیر تغییر</small></div>
+        <div class="float f2"><strong>گفت‌وگوی امن</strong><small>آرام و همدلانه</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick">
+    <div class="container quick-grid reveal">
+      <article><span class="icon">⌁</span><div><strong>مشاوره آنلاین</strong><small>بدون محدودیت مکانی</small></div></article>
+      <article><span class="icon">☎</span><div><strong>مشاوره تلفنی</strong><a href="tel:+989211891824">۰۹۲۱۱۸۹۱۸۲۴</a></div></article>
+      <article><span class="icon">◫</span><div><strong>کارگاه‌های آموزشی</strong><a href="#workshops">مشاهده کارگاه‌ها</a></div></article>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="heading center reveal"><span class="label">خدمات یاشاییش</span><h2>همراهی حرفه‌ای، متناسب با نیاز شما</h2><p>نوع جلسه‌ای را انتخاب کنید که با شرایط و سبک زندگی شما هماهنگ‌تر است.</p></div>
+      <div class="cards">
+        <article class="card featured reveal"><span class="icon">▣</span><h3>مشاوره آنلاین</h3><p>دریافت خدمات روان‌شناختی از هر مکان، در بستری امن و با حفظ حریم خصوصی.</p><ul class="list"><li>مناسب افراد خارج از شهر</li><li>صرفه‌جویی در زمان</li><li>هماهنگی سریع جلسه</li></ul><button class="link" data-book data-service="مشاوره آنلاین">رزرو مشاوره آنلاین ←</button></article>
+        <article class="card reveal"><span class="icon">☎</span><h3>مشاوره تلفنی</h3><p>گفت‌وگوی تلفنی با هماهنگی قبلی، برای زمانی که تماس صوتی انتخاب مناسب‌تری است.</p><div class="phone"><small>شماره تماس</small><a href="tel:+989211891824">۰۹۲۱۱۸۹۱۸۲۴</a></div><a class="link" href="tel:+989211891824">تماس برای هماهنگی ←</a></article>
+        <article class="card reveal"><span class="icon">⌂</span><h3>جلسه حضوری</h3><p>جلسات حضوری در محیطی آرام و حرفه‌ای، پس از هماهنگی و تعیین زمان مناسب.</p><ul class="list"><li>فضای بدون قضاوت</li><li>برنامه‌ریزی منظم</li><li>پیگیری روند جلسات</li></ul><button class="link" data-book data-service="جلسه حضوری">درخواست جلسه حضوری ←</button></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section workshops" id="workshops">
+    <div class="container">
+      <div class="head-row reveal">
+        <div class="heading"><span class="label">کارگاه‌های آموزشی</span><h2>یادگیری برای زندگی آگاهانه‌تر</h2><p>کارگاه‌هایی برای توسعه مهارت‌های فردی و ارتباطی.</p></div>
+        <div class="tabs"><button class="tab active" data-filter="open">در حال ثبت‌نام</button><button class="tab" data-filter="done">برگزارشده</button></div>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card reveal" data-work="open"><div class="work-cover"><span class="status">در حال ثبت‌نام</span><h3>مدیریت اضطراب در زندگی روزمره</h3></div><div class="work-body"><div class="meta"><span>◷ زمان: متعاقباً اعلام می‌شود</span><span>⌁ آنلاین</span></div><p>آشنایی با اضطراب و تمرین راهکارهای کاربردی برای مدیریت بهتر آن.</p><button class="btn secondary full" data-book data-service="کارگاه مدیریت اضطراب">درخواست ثبت‌نام</button></div></article>
+        <article class="work-card reveal" data-work="open"><div class="work-cover sand"><span class="status">در حال ثبت‌نام</span><h3>مرزهای سالم در روابط</h3></div><div class="work-body"><div class="meta"><span>◷ زمان: متعاقباً اعلام می‌شود</span><span>⌁ آنلاین</span></div><p>شناخت مرزهای شخصی و روش‌های محترمانه برای بیان نیازها.</p><button class="btn secondary full" data-book data-service="کارگاه مرزهای سالم">درخواست ثبت‌نام</button></div></article>
+        <article class="work-card" data-work="done" hidden><div class="work-cover blue"><span class="status">برگزارش‌شده</span><h3>خودشناسی و تنظیم هیجان</h3></div><div class="work-body"><div class="meta"><span>✓ پایان‌یافته</span><span>⌁ آنلاین</span></div><p>شناخت هیجان‌ها و تمرین مهارت‌های تنظیم و بیان سالم آن‌ها.</p><button class="btn secondary full" disabled>ثبت‌نام پایان یافته است</button></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="therapists">
+    <div class="container">
+      <div class="heading center reveal"><span class="label">درمانگران</span><h2>همراه شما در مسیر تغییر</h2></div>
+      <article class="profile reveal">
+        <div class="portrait">
+          <svg viewBox="0 0 320 370" aria-label="تصویر جایگزین درمانگر">
+            <circle cx="160" cy="112" r="62" fill="#d4ad90"/><path d="M105 108c4-47 25-70 59-70 38 0 57 30 50 73-18-27-46-37-78-24-12 5-22 12-31 21Z" fill="#354b44"/><path d="M45 365c9-108 51-164 115-164s106 56 115 164" fill="#52776b"/><path d="M133 139c18 13 37 13 55 0" fill="none" stroke="#a77462" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div><span class="label">درمانگر مجموعه یاشاییش</span><h3>دکتر امیر عظیمی</h3><p>برای دریافت اطلاعات درباره حوزه‌های تخصصی، سوابق حرفه‌ای و زمان‌های قابل رزرو دکتر امیر عظیمی با مجموعه تماس بگیرید.</p><div class="tags"><span>مشاوره آنلاین</span><span>مشاوره تلفنی</span><span>رزرو با هماهنگی</span></div><div class="actions"><button class="btn primary" data-book>رزرو وقت با دکتر امیر عظیمی</button><a class="btn ghost" href="tel:+989211891824">تماس برای هماهنگی</a></div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section process">
+    <div class="container">
+      <div class="heading center reveal"><span class="label" style="color:#bdd1c8">فرایند رزرو</span><h2>شروع یک مسیر تازه، در سه قدم</h2></div>
+      <div class="steps"><article class="step reveal"><b>۱</b><h3>ثبت درخواست</h3><p>فرم رزرو را تکمیل کنید یا با مجموعه تماس بگیرید.</p></article><article class="step reveal"><b>۲</b><h3>هماهنگی جلسه</h3><p>زمان و نوع جلسه با شما هماهنگ می‌شود.</p></article><article class="step reveal"><b>۳</b><h3>شروع گفت‌وگو</h3><p>جلسه در زمان تعیین‌شده و فضایی امن آغاز می‌شود.</p></article></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-art reveal"><svg viewBox="0 0 400 430" aria-hidden="true"><path d="M285 375c-23-39-21-67 2-105 24-39 31-80 15-125-23-64-85-97-145-75-62 23-93 90-66 151 13 30 35 49 61 67 18 13 25 32 20 58" fill="none" stroke="#52776b" stroke-width="14" stroke-linecap="round"/><path d="M198 118v151M197 159c-32-25-54-13-58 5 13 23 34 27 58 17M202 206c31-26 54-14 58 4-13 23-34 29-58 19" fill="none" stroke="#d6a467" stroke-width="9" stroke-linecap="round"/></svg><div class="quote">«تغییر از جایی آغاز می‌شود که خودمان را با مهربانی ببینیم.»</div></div>
+      <div class="about reveal"><span class="label">درباره یاشاییش</span><h2>فضایی برای مکث، گفت‌وگو و دوباره دیدن</h2><p>یاشاییش با هدف فراهم‌کردن بستری امن و حرفه‌ای برای دریافت خدمات روان‌شناختی شکل گرفته است؛ جایی برای گفت‌وگو بدون نگرانی از قضاوت.</p><div class="values"><div class="value"><b>امنیت روانی</b><small>فضایی محترمانه</small></div><div class="value"><b>حفظ محرمانگی</b><small>احترام به حریم خصوصی</small></div><div class="value"><b>همراهی حرفه‌ای</b><small>متناسب با نیاز فرد</small></div><div class="value"><b>دسترسی آسان</b><small>آنلاین و تلفنی</small></div></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="heading reveal"><span class="label">مجله یاشاییش</span><h2>خواندنی‌هایی برای مراقبت از روان</h2></div>
+      <div class="blog-grid">
+        <article class="post reveal"><div class="post-cover"></div><div class="post-body"><small>اضطراب · ۶ دقیقه</small><h3>چطور در لحظه‌های اضطراب به خودمان کمک کنیم؟</h3><p>راهکارهایی ساده برای تنظیم تنفس و بازگشت به زمان حال.</p><a class="link" href="#blog">مطالعه مطلب ←</a></div></article>
+        <article class="post reveal"><div class="post-cover"></div><div class="post-body"><small>روابط · ۵ دقیقه</small><h3>مرز شخصی چیست و چرا اهمیت دارد؟</h3><p>مرز سالم راهی برای تجربه رابطه‌ای شفاف‌تر و محترمانه‌تر است.</p><a class="link" href="#blog">مطالعه مطلب ←</a></div></article>
+        <article class="post reveal"><div class="post-cover"></div><div class="post-body"><small>خودشناسی · ۷ دقیقه</small><h3>شناخت احساسات؛ اولین قدم تنظیم هیجان</h3><p>نام‌گذاری احساسات به درک بهتر نیازها کمک می‌کند.</p><a class="link" href="#blog">مطالعه مطلب ←</a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container faq-grid">
+      <div class="heading reveal"><span class="label">پرسش‌های متداول</span><h2>پیش از رزرو چه چیزهایی باید بدانم؟</h2><p>اگر پاسخ پرسش شما اینجا نیست، با ما تماس بگیرید.</p><br><a class="btn secondary" href="tel:+989211891824">تماس با ۰۹۲۱۱۸۹۱۸۲۴</a></div>
+      <div class="reveal">
+        <div class="accordion-item open"><button class="accordion-btn"><span>چطور وقت رزرو کنم؟</span><span>−</span></button><div class="accordion-content"><p>فرم رزرو را تکمیل کنید یا با شماره مجموعه تماس بگیرید. برای هماهنگی نهایی با شما تماس گرفته می‌شود.</p></div></div>
+        <div class="accordion-item"><button class="accordion-btn"><span>جلسه آنلاین چگونه برگزار می‌شود؟</span><span>+</span></button><div class="accordion-content"><p>پس از هماهنگی زمان، اطلاعات بستر برگزاری جلسه برای شما ارسال می‌شود.</p></div></div>
+        <div class="accordion-item"><button class="accordion-btn"><span>مدت و هزینه جلسه چقدر است؟</span><span>+</span></button><div class="accordion-content"><p>مدت و هزینه هنگام هماهنگی و متناسب با نوع خدمت اعلام می‌شود.</p></div></div>
+        <div class="accordion-item"><button class="accordion-btn"><span>آیا اطلاعات جلسات محرمانه است؟</span><span>+</span></button><div class="accordion-content"><p>حفظ حریم خصوصی و محرمانگی اطلاعات از اولویت‌های مجموعه است.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="container contact-wrap">
+      <div class="contact-copy reveal"><span class="label" style="color:#cde0d7">تماس با ما</span><h2>برای شروع گفت‌وگو با ما در ارتباط باشید</h2><p>برای رزرو مشاوره یا دریافت اطلاعات کارگاه‌ها تماس بگیرید یا فرم را تکمیل کنید.</p><div class="contact-list"><a href="tel:+989211891824"><span class="icon">☎</span><span><small>شماره تماس</small><strong>۰۹۲۱۱۸۹۱۸۲۴</strong></span></a><div><span class="icon">⌁</span><span><small>نوع خدمات</small><strong>آنلاین، تلفنی و حضوری</strong></span></div></div><div class="notice"><b>توجه:</b> این وب‌سایت جایگزین خدمات اورژانسی نیست. در شرایط فوری با خدمات اضطراری محل زندگی خود تماس بگیرید.</div></div>
+
+      <form id="contactForm" class="reveal" novalidate>
+        <h3>ارسال پیام</h3><p>برای هماهنگی، اطلاعات خود را وارد کنید.</p>
+        <div class="form-grid">
+          <div class="group"><label for="cname">نام و نام خانوادگی</label><input id="cname" name="name" required></div>
+          <div class="group"><label for="cphone">شماره تماس</label><input id="cphone" name="phone" inputmode="tel" placeholder="۰۹۱۲۱۲۳۴۵۶۷" required></div>
+          <div class="group full"><label for="subject">موضوع</label><select id="subject" required><option value="">انتخاب کنید</option><option>مشاوره آنلاین</option><option>مشاوره تلفنی</option><option>کارگاه آموزشی</option><option>سایر</option></select></div>
+          <div class="group full"><label for="message">پیام</label><textarea id="message" rows="4" required></textarea></div>
+        </div>
+        <div class="consent"><input id="consent1" type="checkbox" required><label for="consent1">با تماس مجموعه برای هماهنگی موافقم.</label></div>
+        <button class="btn primary full" type="submit">ارسال درخواست ←</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about"><div class="brand"><span class="brand-icon">❧</span><span><strong style="color:#fff">Yashayish</strong><small>کلینیک روان‌شناسی یاشاییش</small></span></div><p>فضایی امن برای شناخت خود، گفت‌وگویی همدلانه و حرکت به سوی زندگی آگاهانه‌تر.</p></div>
+      <div><h3>دسترسی سریع</h3><ul><li><a href="#services">خدمات</a></li><li><a href="#workshops">کارگاه‌ها</a></li><li><a href="#therapists">درمانگران</a></li></ul></div>
+      <div><h3>یاشاییش</h3><ul><li><a href="#about">درباره ما</a></li><li><a href="#blog">وبلاگ</a></li><li><a href="#contact">تماس با ما</a></li></ul></div>
+      <div><h3>تماس</h3><ul><li><a href="tel:+989211891824">۰۹۲۱۱۸۹۱۸۲۴</a></li><li>مشاوره آنلاین و تلفنی</li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year"></span> یاشاییش؛ تمامی حقوق محفوظ است.</p><p>مطالب سایت جایگزین تشخیص یا درمان تخصصی نیست.</p></div>
+  </div>
+</footer>
+
+<a class="floating-call" href="tel:+989211891824" aria-label="تماس با یاشاییش">☎<small>تماس</small></a>
+
+<div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="backdrop" data-close></div>
+  <div class="dialog">
+    <button class="close" data-close aria-label="بستن">×</button>
+    <form id="bookingForm" novalidate>
+      <h3 id="modalTitle">درخواست رزرو وقت</h3>
+      <p>پس از ثبت درخواست، برای هماهنگی با شما تماس می‌گیریم.</p>
+      <div class="form-grid">
+        <div class="group"><label for="bname">نام و نام خانوادگی</label><input id="bname" name="name" required></div>
+        <div class="group"><label for="bphone">شماره تماس</label><input id="bphone" name="phone" inputmode="tel" placeholder="۰۹۱۲۱۲۳۴۵۶۷" required></div>
+        <div class="group"><label for="service">نوع خدمت</label><select id="service" required><option value="">انتخاب کنید</option><option>مشاوره آنلاین</option><option>مشاوره تلفنی</option><option>جلسه حضوری</option><option>کارگاه مدیریت اضطراب</option><option>کارگاه مرزهای سالم</option></select></div>
+        <div class="group"><label for="date">تاریخ ترجیحی</label><input id="date" type="date"></div>
+        <div class="group full"><label for="therapist">درمانگر</label><select id="therapist"><option>دکتر امیر عظیمی</option></select></div>
+        <div class="group full"><label for="desc">توضیحات اختیاری</label><textarea id="desc" rows="3"></textarea></div>
+      </div>
+      <div class="consent"><input id="consent2" type="checkbox" required><label for="consent2">با تماس مجموعه برای هماهنگی موافقم.</label></div>
+      <button class="btn primary full" type="submit">ثبت درخواست رزرو</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"><b>✓</b><div><strong>درخواست شما ثبت شد</strong><p>برای هماهنگی بیشتر با شما تماس خواهیم گرفت.</p></div></div>
+
+<script>
+  const $=(s,p=document)=>p.querySelector(s), $$=(s,p=document)=>[...p.querySelectorAll(s)];
+  const header=$("#header"), menu=$("#mobileMenu"), menuBtn=$("#menuBtn");
+  const modal=$("#bookingModal"), service=$("#service"), toast=$("#toast");
+
+  // Header and mobile navigation
+  addEventListener("scroll",()=>header.classList.toggle("scrolled",scrollY>20));
+  menuBtn.addEventListener("click",()=>{
+    const open=menu.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded",open);
+  });
+
+  $$("#mobileMenu a").forEach(a=>a.addEventListener("click",()=>menu.classList.remove("open")));
+
+  // Booking modal
+
+  $$("[data-book]").forEach(btn=>btn.addEventListener("click",()=>{
+    modal.classList.add("open");
+    document.body.classList.add("lock");
+    modal.querySelector("input").focus();
+    const selected=btn.dataset.service;
+    if(selected && [...service.options].some(o=>o.value===selected)) service.value=selected;
+  }));
+
+  $$("[data-close]").forEach(el=>el.addEventListener("click",closeModal));
+  function closeModal(){
+    modal.classList.remove("open");
+    document.body.classList.remove("lock");
+  }
+  addEventListener("keydown",e=>{if(e.key==="Escape") closeModal()});
+
+  // Workshop filters
+
+  $$(".tab").forEach(tab=>tab.addEventListener("click",()=>{
+
+    $$(".tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+
+    $$("[data-work]").forEach(card=>card.hidden=card.dataset.work!==tab.dataset.filter);
+  }));
+
+  // Accordion
+
+  $$(".accordion-btn").forEach(btn=>btn.addEventListener("click",()=>{
+    const item=btn.parentElement, wasOpen=item.classList.contains("open");
+
+    $$(".accordion-item").forEach(i=>{
+      i.classList.remove("open");
+      $(".accordion-btn span:last-child",i).textContent="+";
+    });
+    if(!wasOpen){
+      item.classList.add("open");
+      btn.lastElementChild.textContent="−";
+    }
+  }));
+
+  // Basic client-side validation
+  function validate(form){
+    let valid=true;
+
+    $$("input[required],select[required],textarea[required]",form).forEach(field=>{
+      const bad=field.type==="checkbox" ? !field.checked : !field.value.trim();
+      field.classList.toggle("invalid",bad);
+      if(bad) valid=false;
+    });
+
+    const phone=$('input[name="phone"]',form);
+    if(phone){
+      const normalized=phone.value.replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/\D/g,"");
+      const bad=!/^09\d{9}$/.test(normalized);
+      phone.classList.toggle("invalid",bad);
+      if(bad) valid=false;
+    }
+    return valid;
+  }
+
+  [$("#contactForm"),$("#bookingForm")].forEach(form=>form.addEventListener("submit",e=>{
+    e.preventDefault();
+    if(!validate(form)) return;
+    form.reset();
+    closeModal();
+    toast.classList.add("show");
+    setTimeout(()=>toast.classList.remove("show"),4200);
+
+    // در نسخه نهایی، اطلاعات فرم را اینجا به API ارسال کنید.
+    // fetch("/api/appointments", { method:"POST", body:new FormData(form) })
+  }));
+
+
+  $$("input,select,textarea").forEach(el=>el.addEventListener("input",()=>el.classList.remove("invalid")));
+
+  // Reveal animation
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12});
+
+  $$(".reveal").forEach(el=>observer.observe(el));
+
+  // Active navigation
+  const sections=$$("main section[id]");
+  const sectionObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+
+        $$("nav a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+entry.target.id));
+      }
+    });
+  },{rootMargin:"-35% 0px -55%"});
+  sections.forEach(section=>sectionObserver.observe(section));
+
+  $("#date").min=new Date().toISOString().split("T")[0];
+  $("#year").textContent=new Date().getFullYear().toLocaleString("fa-IR",{useGrouping:false});
+</script>
+</body>
+</html>
