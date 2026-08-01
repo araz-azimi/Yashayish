@@ -10,6 +10,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   
   <!-- اتصال فایل استایل -->
   <link rel="stylesheet" href="style.css">
@@ -32,6 +36,7 @@
       <a href="#services" data-target="view-services">خدمات</a>
       <a href="#workshops" data-target="view-workshops">کارگاه‌ها</a>
       <a href="#therapists" data-target="view-therapists">درمانگران</a>
+      <a href="blog.html">وبلاگ</a>
       <a href="#about" data-target="view-about">درباره ما</a>
       <a href="#contact" data-target="view-contact">تماس با ما</a>
     </nav>
@@ -249,30 +254,31 @@
           <a class="contact-link" href="tel:09211891824">☎ شماره تماس: ۰۹۲۱۱۸۹۱۸۲۴</a>
           <a class="contact-link" href="https://t.me/Araz_Azimi" target="_blank" rel="noopener">➤ تلگرام: @Araz_Azimi</a>
           <a class="contact-link" href="https://instagram.com/Araz_Azimi" target="_blank" rel="noopener">◎ اینستاگرام: @Araz_Azimi</a>
+          
           <!-- بخش پیشنهاد و انتقاد در صفحه تماس با ما -->
-<section class="contact-section">
-  <h2>پیشنهاد و انتقاد</h2>
-  <p>نظرات، پیشنهادات یا انتقادات سازنده خود را با ما در میان بگذارید.</p>
-  
-  <form id="feedbackForm" class="contact-form">
-    <div class="form-group">
-      <label for="feedbackName">نام و نام خانوادگی:</label>
-      <input type="text" id="feedbackName" name="name" required placeholder="نام خود را وارد کنید">
-    </div>
-    
-    <div class="form-group">
-      <label for="feedbackPhone">شماره تماس (اختیاری):</label>
-      <input type="tel" id="feedbackPhone" name="phone" placeholder="مثلاً 09123456789">
-    </div>
-    
-    <div class="form-group">
-      <label for="feedbackMessage">متن پیام / پیشنهاد:</label>
-      <textarea id="feedbackMessage" name="message" rows="4" required placeholder="متن پیام خود را اینجا بنویسید..."></textarea>
-    </div>
-    
-    <button type="submit" class="submit-btn">ارسال پیام به مدیریت</button>
-  </form>
-</section>
+          <section class="contact-section">
+            <h2>پیشنهاد و انتقاد</h2>
+            <p>نظرات، پیشنهادات یا انتقادات سازنده خود را با ما در میان بگذارید.</p>
+            
+            <form id="feedbackForm" class="contact-form">
+              <div class="form-group">
+                <label for="feedbackName">نام و نام خانوادگی:</label>
+                <input type="text" id="feedbackName" name="name" required placeholder="نام خود را وارد کنید">
+              </div>
+              
+              <div class="form-group">
+                <label for="feedbackPhone">شماره تماس (اختیاری):</label>
+                <input type="tel" id="feedbackPhone" name="phone" placeholder="مثلاً 09123456789">
+              </div>
+              
+              <div class="form-group">
+                <label for="feedbackMessage">متن پیام / پیشنهاد:</label>
+                <textarea id="feedbackMessage" name="message" rows="4" required placeholder="متن پیام خود را اینجا بنویسید..."></textarea>
+              </div>
+              
+              <button type="submit" class="submit-btn">ارسال پیام به مدیریت</button>
+            </form>
+          </section>
 
         </div>
       </div>
@@ -386,4 +392,4 @@
 <!-- اتصال فایل جاوا اسکریپت -->
 <script src="script.js"></script>
 </body>
-</html
+</html>
