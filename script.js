@@ -162,8 +162,13 @@ $$("[data-book]").forEach(button => {
 $("#bookingForm").addEventListener("submit", event => {
   event.preventDefault();
 
-  const data = Object.fromEntries(new FormData(event.target));
+  const formData = new FormData(event.target);
   const doctorName = bookingModal.dataset.doctor || "نامشخص";
+  
+  formData.append("doctor", doctorName);
+  formData.append("access_key", "3a2da16a-b340-4801-8fc6-72bf7c74e5df");
+
+  const data = Object.fromEntries(formData);
   
   const reservations = JSON.parse(
     localStorage.getItem("yashayishReservations") || "[]"
@@ -171,7 +176,6 @@ $("#bookingForm").addEventListener("submit", event => {
 
   reservations.push({
     ...data,
-    doctor: doctorName,
     createdAt: new Date().toISOString()
   });
 
@@ -180,35 +184,28 @@ $("#bookingForm").addEventListener("submit", event => {
     JSON.stringify(reservations)
   );
 
-  // ==========================================
-  // ارسال اطلاعات به تلگرام
-  // ==========================================
-  const botToken = '8773033120:AAG8VClhmScLNwxUxCRamQG_pSYw_rk3dOg';
-  const chatId = '1048228960';
-
-  const telegramMessage = `🔔 رزرو وقت جدید در سایت یاشاییش:\n\n` +
-                          `👨‍⚕️ درمانگر: ${doctorName}\n` +
-                          `👤 نام کاربر: ${data.name || data.fullName || 'ثبت نشده'}\n` +
-                          `📞 شماره تماس: ${data.phone || 'ثبت نشده'}\n` +
-                          `📅 تاریخ انتخابی: ${data.date || 'ثبت نشده'}\n` +
-                          `📝 توضیحات: ${data.details || data.message || 'ندارد'}`;
-
-  const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(telegramMessage)}`;
-
-  fetch(telegramUrl)
-    .then(response => {
-      if (!response.ok) {
-        console.error("خطا در ارسال پیام به تلگرام");
-      }
-    })
-    .catch(error => {
-      console.error("Telegram Error:", error);
-    });
-  // ==========================================
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(async (response) => {
+    if (response.ok) {
+      showToast("درخواست رزرو با موفقیت ثبت و ارسال شد.");
+    } else {
+      showToast("رزرو در حافظه ثبت شد، اما ارسال آنلاین با خطا روبرو شد.");
+    }
+  })
+  .catch(error => {
+    console.error("Submission Error:", error);
+    showToast("درخواست رزرو ثبت شد.");
+  });
 
   event.target.reset();
   closeModals();
-  showToast("درخواست رزرو ثبت شد؛ برای نهایی‌سازی با شما تماس می‌گیریم.");
 });
 
 function showToast(message) {
@@ -219,3 +216,4 @@ function showToast(message) {
     toast.classList.remove("show");
   }, 3500);
 }
+
