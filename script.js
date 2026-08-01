@@ -8,18 +8,25 @@ const authModal = $("#authModal");
 const bookingModal = $("#bookingModal");
 const toast = $("#toast");
 
-$("#year").textContent = new Intl.DateTimeFormat("fa-IR", {
-  year: "numeric"
-}).format(new Date());
+const yearEl = $("#year");
+if (yearEl) {
+  yearEl.textContent = new Intl.DateTimeFormat("fa-IR", {
+    year: "numeric"
+  }).format(new Date());
+}
 
-addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", scrollY > 20);
-});
+if (header) {
+  addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", scrollY > 20);
+  });
+}
 
-menu.addEventListener("click", () => {
-  nav.classList.toggle("open");
-  menu.textContent = nav.classList.contains("open") ? "×" : "☰";
-});
+if (menu && nav) {
+  menu.addEventListener("click", () => {
+    nav.classList.toggle("open");
+    menu.textContent = nav.classList.contains("open") ? "×" : "☰";
+  });
+}
 
 $$("a[href^='#']").forEach(link => {
   if (link.hasAttribute("data-auth")) return;
@@ -33,16 +40,18 @@ $$("a[href^='#']").forEach(link => {
     
     if (targetViewId) {
       $$(".page-view").forEach(view => view.classList.remove("active"));
-      $(`#${targetViewId}`).classList.add("active");
+      const targetView = $(`#${targetViewId}`);
+      if (targetView) targetView.classList.add("active");
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
     
-    nav.classList.remove("open");
-    menu.textContent = "☰";
+    if (nav) nav.classList.remove("open");
+    if (menu) menu.textContent = "☰";
   });
 });
 
 function openModal(modal) {
+  if (!modal) return;
   modal.classList.add("open");
   document.body.classList.add("lock");
 }
@@ -70,8 +79,8 @@ $$("[data-auth]").forEach(button => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
     openModal(authModal);
-    nav.classList.remove("open");
-    menu.textContent = "☰";
+    if (nav) nav.classList.remove("open");
+    if (menu) menu.textContent = "☰";
   });
 });
 
@@ -86,35 +95,41 @@ $$("[data-auth-tab]").forEach(tab => {
     });
 
     const register = authMode === "register";
-    $("#nameField").hidden = !register;
-    $("#authName").required = register;
-    $("#authTitle").textContent = register
-      ? "ثبت‌نام در یاشاییش"
-      : "ورود به یاشاییش";
-    $("#authSubmit").textContent = register
-      ? "ایجاد حساب کاربری"
-      : "ورود به حساب";
+    const nameField = $("#nameField");
+    const authName = $("#authName");
+    const authTitle = $("#authTitle");
+    const authSubmit = $("#authSubmit");
+
+    if (nameField) nameField.hidden = !register;
+    if (authName) authName.required = register;
+    if (authTitle) authTitle.textContent = register ? "ثبت‌نام در یاشاییش" : "ورود به یاشاییش";
+    if (authSubmit) authSubmit.textContent = register ? "ایجاد حساب کاربری" : "ورود به حساب";
   });
 });
 
-$("#authForm").addEventListener("submit", event => {
-  event.preventDefault();
-  const phone = $("#authPhone").value.trim();
+const authForm = $("#authForm");
+if (authForm) {
+  authForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const phoneInput = $("#authPhone");
+    if (!phoneInput) return;
+    const phone = phoneInput.value.trim();
 
-  if (!/^۰?۹|^09/.test(phone)) {
-    showToast("شماره موبایل واردشده را بررسی کنید.");
-    return;
-  }
+    if (!/^۰?۹|^09/.test(phone)) {
+      showToast("شماره موبایل واردشده را بررسی کنید.");
+      return;
+    }
 
-  showToast(
-    authMode === "register"
-      ? "حساب کاربری شما ایجاد شد."
-      : "ورود با موفقیت انجام شد."
-  );
+    showToast(
+      authMode === "register"
+        ? "حساب کاربری شما ایجاد شد."
+        : "ورود با موفقیت انجام شد."
+    );
 
-  event.target.reset();
-  closeModals();
-});
+    event.target.reset();
+    closeModals();
+  });
+}
 
 $$("[data-tab]").forEach(tab => {
   tab.addEventListener("click", () => {
@@ -122,7 +137,8 @@ $$("[data-tab]").forEach(tab => {
     $$("[data-panel]").forEach(panel => panel.classList.remove("active"));
 
     tab.classList.add("active");
-    $(`[data-panel="${tab.dataset.tab}"]`).classList.add("active");
+    const panel = $(`[data-panel="${tab.dataset.tab}"]`);
+    if (panel) panel.classList.add("active");
   });
 });
 
@@ -153,62 +169,67 @@ createPersianDates();
 
 $$("[data-book]").forEach(button => {
   button.addEventListener("click", () => {
-    $("#doctorSelected").textContent = button.dataset.book;
-    bookingModal.dataset.doctor = button.dataset.book;
+    const doctorSelected = $("#doctorSelected");
+    if (doctorSelected) doctorSelected.textContent = button.dataset.book;
+    if (bookingModal) bookingModal.dataset.doctor = button.dataset.book;
     openModal(bookingModal);
   });
 });
 
-$("#bookingForm").addEventListener("submit", event => {
-  event.preventDefault();
+const bookingForm = $("#bookingForm");
+if (bookingForm) {
+  bookingForm.addEventListener("submit", event => {
+    event.preventDefault();
 
-  const formData = new FormData(event.target);
-  const doctorName = bookingModal.dataset.doctor || "نامشخص";
-  
-  formData.append("doctor", doctorName);
-  formData.append("access_key", "3a2da16a-b340-4801-8fc6-72bf7c74e5df");
+    const formData = new FormData(event.target);
+    const doctorName = bookingModal ? bookingModal.dataset.doctor || "نامشخص" : "نامشخص";
+    
+    formData.append("doctor", doctorName);
+    formData.append("access_key", "3a2da16a-b340-4801-8fc6-72bf7c74e5df");
 
-  const data = Object.fromEntries(formData);
-  
-  const reservations = JSON.parse(
-    localStorage.getItem("yashayishReservations") || "[]"
-  );
+    const data = Object.fromEntries(formData);
+    
+    const reservations = JSON.parse(
+      localStorage.getItem("yashayishReservations") || "[]"
+    );
 
-  reservations.push({
-    ...data,
-    createdAt: new Date().toISOString()
+    reservations.push({
+      ...data,
+      createdAt: new Date().toISOString()
+    });
+
+    localStorage.setItem(
+      "yashayishReservations",
+      JSON.stringify(reservations)
+    );
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(async (response) => {
+      if (response.ok) {
+        showToast("درخواست رزرو با موفقیت ثبت و ارسال شد.");
+      } else {
+        showToast("رزرو در حافظه ثبت شد، اما ارسال آنلاین با خطا روبرو شد.");
+      }
+    })
+    .catch(error => {
+      console.error("Submission Error:", error);
+      showToast("درخواست رزرو ثبت شد.");
+    });
+
+    event.target.reset();
+    closeModals();
   });
-
-  localStorage.setItem(
-    "yashayishReservations",
-    JSON.stringify(reservations)
-  );
-
-  fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(async (response) => {
-    if (response.ok) {
-      showToast("درخواست رزرو با موفقیت ثبت و ارسال شد.");
-    } else {
-      showToast("رزرو در حافظه ثبت شد، اما ارسال آنلاین با خطا روبرو شد.");
-    }
-  })
-  .catch(error => {
-    console.error("Submission Error:", error);
-    showToast("درخواست رزرو ثبت شد.");
-  });
-
-  event.target.reset();
-  closeModals();
-});
+}
 
 function showToast(message) {
+  if (!toast) return;
   toast.textContent = "✓ " + message;
   toast.classList.add("show");
   clearTimeout(window.toastTimer);
@@ -261,7 +282,6 @@ if (blogContainer) {
       return response.json();
     })
     .then(posts => {
-      // پاک کردن محتوای قبلی (مثلاً متن "در حال بارگذاری...")
       blogContainer.innerHTML = "";
       
       posts.forEach(post => {
@@ -299,3 +319,4 @@ if (blogContainer) {
       blogContainer.innerHTML = "<p style='text-align:center; width:100%;'>در حال حاضر مقاله‌ای برای نمایش وجود ندارد.</p>";
     });
 }
+
