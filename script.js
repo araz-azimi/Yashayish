@@ -128,6 +128,7 @@ $$("[data-tab]").forEach(tab => {
 
 function createPersianDates() {
   const select = $("#dates");
+  if (!select) return;
   const formatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
     weekday: "long",
     day: "numeric",
@@ -162,13 +163,15 @@ $("#bookingForm").addEventListener("submit", event => {
   event.preventDefault();
 
   const data = Object.fromEntries(new FormData(event.target));
+  const doctorName = bookingModal.dataset.doctor || "نامشخص";
+  
   const reservations = JSON.parse(
     localStorage.getItem("yashayishReservations") || "[]"
   );
 
   reservations.push({
     ...data,
-    doctor: bookingModal.dataset.doctor,
+    doctor: doctorName,
     createdAt: new Date().toISOString()
   });
 
@@ -176,6 +179,32 @@ $("#bookingForm").addEventListener("submit", event => {
     "yashayishReservations",
     JSON.stringify(reservations)
   );
+
+  // ==========================================
+  // ارسال اطلاعات به تلگرام
+  // ==========================================
+  const botToken = '8773033120:AAG8VClhmScLNwxUxCRamQG_pSYw_rk3dOg';
+  const chatId = '1048228960';
+
+  const telegramMessage = `🔔 رزرو وقت جدید در سایت یاشاییش:\n\n` +
+                          `👨‍⚕️ درمانگر: ${doctorName}\n` +
+                          `👤 نام کاربر: ${data.name || data.fullName || 'ثبت نشده'}\n` +
+                          `📞 شماره تماس: ${data.phone || 'ثبت نشده'}\n` +
+                          `📅 تاریخ انتخابی: ${data.date || 'ثبت نشده'}\n` +
+                          `📝 توضیحات: ${data.details || data.message || 'ندارد'}`;
+
+  const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(telegramMessage)}`;
+
+  fetch(telegramUrl)
+    .then(response => {
+      if (!response.ok) {
+        console.error("خطا در ارسال پیام به تلگرام");
+      }
+    })
+    .catch(error => {
+      console.error("Telegram Error:", error);
+    });
+  // ==========================================
 
   event.target.reset();
   closeModals();
