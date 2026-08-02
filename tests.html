@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="تست‌های روان‌شناسی آنلاین آکادمی یاشاییش">
+  <meta name="theme-color" content="#426b64">
+  <title>تست‌های روانشناختی | Yashayish</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="container header">
+    <a class="logo" href="index.html">
+      <span class="mark">
+        Y
+        <img src="images/logo.png" alt="لوگو" onerror="this.style.display='none'">
+      </span>
+      <span><b>Yashayish</b><small>آرامش برای ذهن</small></span>
+    </a>
+
+    <nav id="nav">
+      <a href="index.html">صفحه اصلی</a>
+      <a href="index.html#services">خدمات</a>
+      <a href="index.html#workshops">کارگاه‌ها</a>
+      <a href="index.html#therapists">درمانگران</a>
+      <a href="blog.html">وبلاگ</a>
+      <a href="tests.html" style="color: var(--p); font-weight: 700;">تست‌های روانشناختی</a>
+      <a href="index.html#contact">تماس با ما</a>
+    </nav>
+
+    <div>
+      <button class="menu" id="menu" aria-label="نمایش منو">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section page-section soft" style="min-height: 100vh;">
+    <div class="container">
+      <div class="heading">
+        <span class="label">ارزیابی آنلاین</span>
+        <h2>تست‌های روانشناختی</h2>
+        <p>با انجام این تست‌های معتبر، شناخت بهتری از وضعیت فعلی خود پیدا کنید و در صورت نیاز با متخصصین ما در ارتباط باشید.</p>
+      </div>
+
+      <!-- لیست تست‌ها از فایل JSON خوانده شده و در اینجا قرار می‌گیرند -->
+      <div id="testsList" class="test-list"></div>
+      
+      <!-- محیط اجرای تست (فرم و سوالات) -->
+      <div id="testApp" class="test-container"></div>
+      
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer">
+    <div><b>Yashayish</b><br>آکادمی روان‌شناسی و آرامش ذهن</div>
+    <div>
+      <a href="index.html">صفحه اصلی</a> ·
+      <a href="blog.html">وبلاگ</a> ·
+      <a href="index.html#contact">تماس با ما</a>
+    </div>
+  </div>
+  <div class="container copyright">
+    © <span id="year"></span> تمامی حقوق برای یاشاییش محفوظ است.
+  </div>
+</footer>
+
+<!-- کپی از مودال ثبت‌نام و رزرو وقت برای در دسترس بودن در صفحه تست‌ها -->
+<div class="modal" id="bookingModal">
+  <div class="dialog">
+    <button class="close" data-close>×</button>
+    <h2>رزرو وقت مشاوره تخصصی</h2>
+    <p>بر اساس نتیجه تست، پیشنهاد می‌شود فرم زیر را برای بررسی‌های بیشتر پر کنید.</p>
+
+    <form id="bookingForm">
+      <div class="selected">درمانگر: <b id="doctorSelected">تعیین توسط کلینیک</b></div>
+
+      <div class="form-grid">
+        <label>
+          نام و نام خانوادگی
+          <input name="name" required placeholder="نام مراجعه‌کننده">
+        </label>
+        <label>
+          شماره موبایل
+          <input name="phone" type="tel" inputmode="numeric" required placeholder="۰۹۱۲۱۲۳۴۵۶۷">
+        </label>
+        <label>
+          تاریخ شمسی
+          <select name="date" id="dates" required>
+            <option value="">انتخاب تاریخ</option>
+          </select>
+        </label>
+        <label>
+          ساعت جلسه
+          <select name="time" required>
+            <option value="">انتخاب ساعت</option>
+            <option>۰۹:۰۰</option><option>۱۰:۳۰</option>
+            <option>۱۲:۰۰</option><option>۱۶:۰۰</option>
+            <option>۱۷:۳۰</option><option>۱۹:۰۰</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        نوع مشاوره
+        <select name="type" required>
+          <option value="">انتخاب نوع مشاوره</option>
+          <option>مشاوره آنلاین</option>
+          <option>مشاوره تلفنی</option>
+        </select>
+      </label>
+
+      <label>
+        توضیحات اختیاری
+        <textarea name="message" placeholder="نمره تست خود یا توضیحات دیگر را بنویسید"></textarea>
+      </label>
+
+      <button class="btn primary full">ثبت درخواست رزرو</button>
+      <p class="note">رزرو پس از هماهنگی تلفنی نهایی خواهد شد.</p>
+    </form>
+  </div>
+</div>
+<div class="toast" id="toast">✓ درخواست شما با موفقیت ثبت شد.</div>
+
+<script src="script.js"></script>
+</body>
+</html>

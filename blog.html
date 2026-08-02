@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="وبلاگ روان‌شناسی آکادمی یاشاییش">
+  <meta name="theme-color" content="#426b64">
+  <title>وبلاگ | Yashayish</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="container header">
+    <a class="logo" href="index.html">
+      <span class="mark">
+        Y
+        <img src="images/logo.png" alt="لوگو" onerror="this.style.display='none'">
+      </span>
+      <span><b>Yashayish</b><small>آرامش برای ذهن</small></span>
+    </a>
+
+    <nav id="nav">
+      <a href="index.html">صفحه اصلی</a>
+      <a href="index.html#services">خدمات</a>
+      <a href="index.html#workshops">کارگاه‌ها</a>
+      <a href="index.html#therapists">درمانگران</a>
+      <a href="blog.html" style="color: var(--p); font-weight: 700;">وبلاگ</a>
+      <a href="tests.html">تست‌های روانشناختی</a>
+      <a href="index.html#contact">تماس با ما</a>
+    </nav>
+
+    <div>
+      <button class="menu" id="menu" aria-label="نمایش منو">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section page-section soft" style="min-height: 100vh;">
+    <div class="container">
+      <div class="heading">
+        <span class="label">وبلاگ روان‌شناسی</span>
+        <h2>مقالاتی برای آگاهی و رشد فردی</h2>
+        <p>در این بخش می‌توانید جدیدترین مطالب و فایل‌های آموزشی را مطالعه و دانلود کنید.</p>
+      </div>
+
+      <!-- مقالات به صورت خودکار از فایل JSON خوانده شده و در اینجا قرار می‌گیرند -->
+      <div class="blog-grid" id="blogContainer">
+        <!-- در حال بارگذاری... -->
+      </div>
+      
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer">
+    <div><b>Yashayish</b><br>آکادمی روان‌شناسی و آرامش ذهن</div>
+    <div>
+      <a href="index.html">صفحه اصلی</a> ·
+      <a href="blog.html">وبلاگ</a> ·
+      <a href="index.html#contact">تماس با ما</a>
+    </div>
+  </div>
+  <div class="container copyright">
+    © <span id="year"></span> تمامی حقوق برای یاشاییش محفوظ است.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
